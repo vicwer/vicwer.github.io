@@ -6,9 +6,9 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-  <title>About</title>
-  <meta name='description' content="">
-  <link rel='canonical' href="http://localhost:4000/about.html">
+  <title>ubuntu18.04系统nfs文件系统挂载</title>
+  <meta name='description' content="服务器安装配置NFS  安装NFS终端输入以下命令    sudo apt install nfs-kernel-server        配置NFSroot权限打开/etc/exports添加要共享的目录和允许被挂载的服务器IP    sudo vim /etc/exports/home/user/kgdua...">
+  <link rel='canonical' href="http://localhost:4000/2019/09/08/ubuntu-%E7%B3%BB%E7%BB%9Fnfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%8C%82%E8%BD%BD/">
   <link rel='alternate' type='application/rss+xml' title='KG.Duan的三味书屋' href="http://localhost:4000/feed.xml">
 
   <style>
@@ -92,25 +92,80 @@
 
 </header>
 
-    <div class='o-wrapper'>
+    
+
+
+
+<div class='o-wrapper'>
 
   <div class='o-grid'>
     <div class='o-grid__col'>
-      <article class='c-post'>
-        <h1 class='c-post__title u-text-center'>About</h1>
+      <article class='c-post' itemscope itemtype='http://schema.org/BlogPosting'>
 
-        <div class='c-content'>
+        <h1 class='c-post__title u-text-center'>ubuntu18.04系统nfs文件系统挂载</h1>
+
+        <time class='c-post__date' datetime='2019-09-08T00:00:00+08:00' itemprop='datePublished'>08 Sep 2019</time>
+
+        <div class='c-content' itemprop='articleBody'>
           
 
-          <p>You love Minimalism, and you also love writing, Type is designed for you. Type focus on showing your content in a clean and simple way, focus on images, typography, and white space.</p>
+          <h3 id="服务器安装配置nfs">服务器安装配置NFS</h3>
+<ol>
+  <li>安装NFS<br />
+终端输入以下命令
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install nfs-kernel-server
+</code></pre></div>    </div>
+  </li>
+  <li>配置NFS<br />
+root权限打开/etc/exports添加要共享的目录和允许被挂载的服务器IP
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo vim /etc/exports
+/home/user/kgduan 192.168.1.*(rw, sync, no_root_squash, no_subtree_check)
+</code></pre></div>    </div>
+  </li>
+  <li>重启NFS
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo /etc/init.d/nfs-kernel-server restart
+</code></pre></div>    </div>
+  </li>
+</ol>
 
-<p>This is the base Jekyll theme. You can download the source code at <a href="https://github.com/aspirethemes/type/archive/master.zip">github</a>. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at <a href="http://jekyllrb.com/">jekyllrb.com</a></p>
+<h3 id="客户端安装配置nfs">客户端安装配置NFS</h3>
+<ol>
+  <li>安装NFS<br />
+终端输入以下命令
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install nfs-kernel-server
+</code></pre></div>    </div>
+  </li>
+  <li>新建要与服务器挂载的目录
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir -p /mnt/nfs
+</code></pre></div>    </div>
+  </li>
+  <li>挂载
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mount -t nfs -o nolock 192.168.1.123:/home/user/kgduan /mnt/nfs
+</code></pre></div>    </div>
+  </li>
+  <li>若要开机自动挂载，执行以下指令，添加以下内容
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo vim /etc/fstab
+192.168.1.123:/home/user/kgduan /mnt/nfs rw 0 0
+</code></pre></div>    </div>
+  </li>
+</ol>
 
         </div>
+
+        <div class='c-tags'>
+          
+            <a href='/tag/ubuntu'>ubuntu</a>
+          
+            <a href='/tag/nfs'>nfs</a>
+          
+            <a href='/tag/mount'>mount</a>
+          
+        </div>
+
       </article>
+
     </div>
   </div>
-
 </div>
 
     <footer class='c-footer'>
