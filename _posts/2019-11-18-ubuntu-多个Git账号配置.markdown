@@ -8,11 +8,13 @@ tags: [ubuntu, Git]
 
 > 以其中一个账号为例
 
-```
+```bash
 ssh-keygen -t rsa -C "876706485@qq.com"
 ```
+
 输完命令后会要求设置key的保存文件路径，建议每个账号分别新建一个文件
-```
+
+```bash
 Enter file in which to save the key (/home/user/.ssh/id_rsa): /home/user/.ssh/id_rsa_github
 ```
 
@@ -24,7 +26,7 @@ github个人设置中有`SSH and GPG keys`选项，将生成的key拷贝到此�
 
 如果存在原始gitconfig文件，将其备份
 
-```
+```bash
 mv ~/.gitconfig ~/.gitconfig.bak
 ```
 
@@ -32,7 +34,7 @@ mv ~/.gitconfig ~/.gitconfig.bak
 
 touch ~/.ssh/config，在config中添加所有git
 
-```
+```bash
 # GitLib
 Host git-server
         HostName 192.168.2.11
@@ -52,14 +54,14 @@ Host github.com
 
 > 这样可以避免重复输入密码，也无需重复部署私钥
 
-```
+```bash
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa_github
 ```
 
 ### 测试ssh配置是否成功
 
-```
+```bash
 ssh -T git@github.com
 ```
 
