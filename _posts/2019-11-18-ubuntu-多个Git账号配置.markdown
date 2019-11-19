@@ -67,7 +67,7 @@ ssh -T git@github.com
 
 下载库时切换到`clone with ssh`，clone之后配置`user.email`和`user.name`，注意，不要添加`--global`选项，这样配置的邮箱和用户名只在当前repo生效，然后就可以修改源码并且push了
 
-```
+{% highlight console %}
 git clone git@github.com:vicwer/leetcode.git
 git config user.email "876706485@qq.com"
 git config user.name vicwer
@@ -83,4 +83,4 @@ git config user.name kgduan
 git add -A
 git commit -m ""
 git push
-```
+{% endhighlight %}
