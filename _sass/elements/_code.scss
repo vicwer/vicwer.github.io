@@ -2,6 +2,7 @@
   Elements > code & pre
 \*------------------------------------*/
 
+
 pre,
 code {
   font-family: $font-monospace;
@@ -10,13 +11,28 @@ code {
 
 pre {
   overflow: auto;
-  padding: double($base-spacing-unit);
-  margin-bottom: $base-spacing-unit;
-  font-size: $font-size-medium;
-  line-height: $line-height-medium;
-  white-space: pre-wrap;
+  padding: half($base-spacing-unit);
+  margin-bottom: harf($base-spacing-unit);
+  font-size: $font-size-small;
+  line-height: $line-height-small;
   word-wrap: break-word;
 }
 
 li code,
-p code { padding: quarter($base-spacing-unit) half($base-spacing-unit); }
+p code { padding: harf($base-spacing-unit) half($base-spacing-unit); }
+
+
+code {
+  padding: 1px 5px;
+}
+
+pre {
+  padding: 8px 12px;
+  overflow-x: auto;
+
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
