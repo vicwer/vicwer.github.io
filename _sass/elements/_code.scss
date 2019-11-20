@@ -15,7 +15,9 @@ pre {
   margin-bottom: double($base-spacing-unit);
   font-size: $font-size-small;
   line-height: $line-height-small;
-  word-wrap: break-word;
+  // word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
 }
 
 li code,

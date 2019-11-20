@@ -59,6 +59,7 @@ body {
           font-feature-settings: "kern" 1;
   font-kerning: normal;
   display: flex;
+  // overflow-x:auto;
   min-height: 100vh;
   flex-direction: column;
 }
