@@ -70,7 +70,7 @@ ssh -T git@github.com
 
 {% highlight shell %}
 git clone git@github.com:vicwer/leetcode.git
-git config user.email "876706485@qq.com"
+git config user.email "100000@qq.com"
 git config user.name vicwer
 
 git add -A
