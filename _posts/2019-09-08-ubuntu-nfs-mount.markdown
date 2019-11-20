@@ -5,40 +5,45 @@ tags: [ubuntu, nfs, mount]
 ---
 
 ### 服务器安装配置NFS
-1. 安装NFS<br/>
-终端输入以下命令
-```bash
-sudo apt install nfs-kernel-server
-```
 
-2. 配置NFS<br/>
+- 安装NFS
+终端输入以下命令
+{% highlight shell %}
+sudo apt install nfs-kernel-server
+{% endhighlight %}
+
+- 配置NFS
 root权限打开/etc/exports添加要共享的目录和允许被挂载的服务器IP
-```bash
+{% highlight shell %}
 sudo vim /etc/exports
 /home/user/kgduan 192.168.1.*(rw, sync, no_root_squash, no_subtree_check)
-```
+{% endhighlight %}
 
-3. 重启NFS
-```bash
+- 重启NFS
+{% highlight shell %}
 sudo /etc/init.d/nfs-kernel-server restart
-```
+{% endhighlight %}
 
 ### 客户端安装配置NFS
-4. 安装NFS<br/>
+
+- 安装NFS
 终端输入以下命令
-```bash
+{% highlight shell %}
 sudo apt install nfs-kernel-server
-```
-5. 新建要与服务器挂载的目录
-```bash
+{% endhighlight %}
+
+- 新建要与服务器挂载的目录
+{% highlight shell %}
 mkdir -p /mnt/nfs
-```
-6. 挂载
-```bash
+{% endhighlight %}
+
+- 挂载
+{% highlight shell %}
 mount -t nfs -o nolock 192.168.1.123:/home/user/kgduan /mnt/nfs
-```
-7. 若要开机自动挂载，执行以下指令，添加以下内容
-```bash
+{% endhighlight %}
+
+- 若要开机自动挂载，执行以下指令，添加以下内容
+{% highlight shell %}
 sudo vim /etc/fstab
 192.168.1.123:/home/user/kgduan /mnt/nfs rw 0 0
-```
+{% endhighlight %}
