@@ -9,7 +9,7 @@ tags: [ubuntu, Git]
 > 以其中一个账号为例
 
 {% highlight shell %}
-ssh-keygen -t rsa -C "876706485@qq.com"
+ssh-keygen -t rsa -C "100000@qq.com"
 {% endhighlight %}
 
 输完命令后会要求设置key的保存文件路径，建议每个账号分别新建一个文件
@@ -46,7 +46,7 @@ Host git-server
 # GitHub
 Host github.com
         HostName github.com
-        User 876706485@qq.com
+        User 100000@qq.com
         IdentityFile ~/.ssh/id_rsa_github
 {% endhighlight %}
 ### 将私钥交给agent管理
