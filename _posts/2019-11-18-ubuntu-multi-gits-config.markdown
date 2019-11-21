@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ubuntu18.04系统多个Git账号配置
-tags: [ubuntu, Git]
+tags: [ubuntu, git]
 ---
 
 ### 使用ssh分别生成每个账号的key

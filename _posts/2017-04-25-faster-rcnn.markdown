@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Faster R-CNN初涉
-tags: [object detect, deep learning]
+tags: [目标检测, 深度学习, rcnn]
 ---
 
 ### Faster R-CNN简介
@@ -72,4 +72,4 @@ RPN与Fast R-CNN共享卷积特征
 
 最后附一张RCNN网络的计算量统计
 
-![macc](/images/posts/2017-04-25/macc.PNG)
+![macc](/images/posts/2017-04-25/macc.png)
