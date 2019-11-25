@@ -18,9 +18,9 @@ ssh-keygen -t rsa -C "100000@qq.com"
 Enter file in which to save the key (/home/user/.ssh/id_rsa): /home/user/.ssh/id_rsa_github
 {% endhighlight %}
 
-### 将生成的key分别添加到对应的github
+### 将生成的public key分别添加到对应的github
 
-github个人设置中有`SSH and GPG keys`选项，将生成的key拷贝到此处
+github个人设置中有`SSH and GPG keys`选项，将生成的公钥拷贝到此处
 
 ### 备份原始gitconfig文件
 
@@ -63,6 +63,15 @@ ssh-add ~/.ssh/id_rsa_github
 {% highlight shell %}
 ssh -T git@github.com
 {% endhighlight %}
+
+如果此处报错`Failed to add the host to the list of known hosts (/home/user/.ssh/known_hosts).`可能是由于ssh文件权限问题，执行以下命令
+
+{% highlight shell %}
+sudo chmod 644 ~/.ssh/known_hosts
+sudo chmod 755 ~/.ssh
+{% endhighlight %}
+
+再重新运行`ssh -T git@github.com`即可
 
 ### clone repo
 
